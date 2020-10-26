@@ -14,8 +14,8 @@ module.exports = {
       "@semantic-release/github",
       {
         assets: [
-          { path: ".next/static/**", label: "Static files" },
-          { path: ".next/server/**", label: "Server files" },
+          { path: ".next/static", label: "Static files" },
+          { path: ".next/server", label: "Server files" },
         ],
       },
     ],
