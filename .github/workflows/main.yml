@@ -19,3 +19,7 @@ jobs:
           vercel-project-id: ${{ secrets.PROJECT_ID}}
           alias-domains: |
             ${{ secrets.PROD_DOMAIN }}
+      - name: Release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
