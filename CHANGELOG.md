@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/jwbaart/children-quotes/compare/v1.1.2...v1.1.3) (2020-10-26)
+
+
+### Bug Fixes
+
+* test fix ([d74f82a](https://github.com/jwbaart/children-quotes/commit/d74f82aee71cb3759db9a73ffbb721387ab616ca))
+
 ## [1.1.2](https://github.com/jwbaart/children-quotes/compare/v1.1.1...v1.1.2) (2020-10-26)
 
 
