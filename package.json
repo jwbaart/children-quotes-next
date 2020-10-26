@@ -2,6 +2,11 @@
   "name": "children-quotes",
   "version": "0.1.0",
   "private": true,
+  "files": [
+    "CHANGELOG.md",
+    "package.json",
+    "package-lock.json"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

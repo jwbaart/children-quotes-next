@@ -19,6 +19,11 @@ jobs:
           vercel-project-id: ${{ secrets.PROJECT_ID}}
           alias-domains: |
             ${{ secrets.PROD_DOMAIN }}
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
       - name: Release
         run: npx semantic-release
         env:
