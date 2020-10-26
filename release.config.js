@@ -5,13 +5,18 @@ module.exports = {
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     [
+      "@semantic-release/npm",
+      {
+        npmPublish: false,
+      },
+    ],
+    [
       "@semantic-release/github",
       {
         assets: [{ path: ".next/static/**/*", label: "Release files" }],
       },
     ],
     "@semantic-release/git",
-    "@semantic-release/npm",
   ],
   // "preset": "angular"
 };
