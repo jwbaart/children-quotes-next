@@ -1,7 +1,7 @@
-name: PR build & deploy
+name: Main build & deploy
 
 on:
-  pull_request:
+  push:
     branches: [main]
 
 jobs:
@@ -14,5 +14,8 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: "--prod"
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
+          alias-domains: |
+            ${{ secrets.PROD_DOMAIN }}
