@@ -1,5 +1,5 @@
-import { SvgIcon } from "@material-ui/core";
-import React from "react";
+import { SvgIcon } from '@material-ui/core';
+import React from 'react';
 
 const QuoteIcon = (props) => {
   return (
