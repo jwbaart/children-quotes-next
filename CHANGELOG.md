@@ -1,3 +1,11 @@
+## [1.1.5](https://github.com/jwbaart/children-quotes/compare/v1.1.4...v1.1.5) (2020-11-04)
+
+
+### Bug Fixes
+
+* basic layout ([0efa1dc](https://github.com/jwbaart/children-quotes/commit/0efa1dcbc065d131dc196391177d68bb1383c86b))
+* get links semi working ([1818138](https://github.com/jwbaart/children-quotes/commit/18181382d851857643a8c673636fbaf04e75f133))
+
 ## [1.1.4](https://github.com/jwbaart/children-quotes/compare/v1.1.3...v1.1.4) (2020-10-26)
 
 
