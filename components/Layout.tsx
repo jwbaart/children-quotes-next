@@ -1,7 +1,7 @@
-import { Box, Button } from "@material-ui/core";
-import React from "react";
-import PageFooter from "./PageFooter";
-import PageHeader from "./PageHeader";
+import { Box } from '@material-ui/core';
+import React from 'react';
+import PageFooter from './PageFooter';
+import PageHeader from './PageHeader';
 
 const Layout = ({ children }) => {
   return (
