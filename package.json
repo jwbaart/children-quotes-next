@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "next": "9.5.5",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "next": "^10.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
