@@ -1,16 +1,16 @@
 import { AppBar, Box, Toolbar } from "@material-ui/core";
 import React from "react";
 import QuoteIcon from "../svg-icons/Quote";
-import Link from "./../src/Link";
+import NextLink from "next/link";
 
 const PageHeader = () => {
   return (
     <AppBar position="static">
       <Box component="header">
         <Toolbar>
-          <Link href="/">
-            <QuoteIcon style={{ fill: "white" }}></QuoteIcon>
-          </Link>
+          {/* <NextLink href="/"> */}
+          <QuoteIcon style={{ fill: "white" }}></QuoteIcon>
+          {/* </NextLink> */}
         </Toolbar>
       </Box>
     </AppBar>
