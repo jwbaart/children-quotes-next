@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProTip() {
+export default function ProTip(): JSX.Element {
   const classes = useStyles();
   return (
     <Typography className={classes.root} color="textSecondary">

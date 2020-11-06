@@ -7,7 +7,7 @@ import Copyright from '../src/Copyright';
 import Layout from '../components/Layout';
 import NextLink from 'next/link';
 
-export default function About() {
+const About = (): JSX.Element => {
   return (
     <Layout>
       <Container maxWidth="sm">
@@ -31,4 +31,6 @@ export default function About() {
       </Container>
     </Layout>
   );
-}
+};
+
+export default About;

@@ -7,7 +7,7 @@ import NextLink from 'next/link';
 import Copyright from '../src/Copyright';
 import Layout from '../components/Layout';
 
-export default function Index() {
+const Index = (): JSX.Element => {
   return (
     <Layout>
       <Container maxWidth="sm">
@@ -22,4 +22,6 @@ export default function Index() {
       </Container>
     </Layout>
   );
-}
+};
+
+export default Index;
