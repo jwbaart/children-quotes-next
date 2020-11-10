@@ -1,6 +1,7 @@
 import { AppBar, Box, Toolbar } from '@material-ui/core';
 import React from 'react';
 import QuoteIcon from '../svg-icons/Quote';
+import signIn from '../utils/auth';
 
 const PageHeader = (): JSX.Element => {
   return (
@@ -10,6 +11,7 @@ const PageHeader = (): JSX.Element => {
           {/* <NextLink href="/"> */}
           <QuoteIcon style={{ fill: 'white' }}></QuoteIcon>
           {/* </NextLink> */}
+          <button onClick={signIn}>Sign in</button>
         </Toolbar>
       </Box>
     </AppBar>
