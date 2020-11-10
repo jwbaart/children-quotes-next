@@ -1,6 +1,4 @@
-import React from 'react';
-
-const PageFooter = () => {
+const PageFooter = (): JSX.Element => {
   return null;
 };
 
