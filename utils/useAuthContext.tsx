@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react';
 import getFirebase from '../firebase/firebase';
-import { AuthContext } from './auth.provider';
+import { AuthContext, AuthState } from './auth.provider';
 
 const firebase = getFirebase();
 
-const useAuthContext = () => {
-  const [user, setUser] = useContext(AuthContext);
+export const useAuthContext = (): AuthState => {
+  const [authState, setAuthState] = useContext(AuthContext);
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   const signIn = async () =>
@@ -15,7 +15,7 @@ const useAuthContext = () => {
       .then(async (response) => {
         if (response && response.user) {
           await postUserToken(await response.user.getIdToken());
-          setUser(response);
+          setAuthState({ ...authState, user: response, isAuthenticated: true });
           return;
         }
         return null;
@@ -25,16 +25,20 @@ const useAuthContext = () => {
     return firebase
       .auth()
       .signOut()
-      .then(() => setUser(false));
+      .then(() =>
+        setAuthState({ ...authState, user: false, isAuthenticated: false })
+      );
   };
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onIdTokenChanged(() => setUser(false));
+    const unsubscribe = firebase
+      .auth()
+      .onIdTokenChanged(() => setAuthState(false));
     return () => unsubscribe();
-  }, [setUser]);
+  }, [setAuthState]);
 
   return {
-    user,
+    ...authState,
     signIn,
     signOut,
   };
@@ -44,7 +48,6 @@ const postUserToken = async (token) => {
   const path = '/api/auth';
   const url = process.env.NEXT_PUBLIC_BASE_API_URL + path;
   const data = { token: token };
-  // Default options are marked with *
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -54,5 +57,3 @@ const postUserToken = async (token) => {
   });
   return response.json(); // parses JSON response into native JavaScript objects
 };
-
-export { useAuthContext };

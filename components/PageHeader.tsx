@@ -14,7 +14,18 @@ const useStyles = makeStyles(() => ({
 
 const PageHeader = (): JSX.Element => {
   const classes = useStyles();
-  const { user, signIn, signOut } = useAuthContext();
+  const { signIn, signOut, isAuthenticated } = useAuthContext();
+
+  const LoginButton = (
+    <Button onClick={signIn} color="inherit">
+      Login
+    </Button>
+  );
+  const LogoutButton = (
+    <Button onClick={signOut} color="inherit">
+      Logout
+    </Button>
+  );
 
   return (
     <AppBar position="static" className="page-header">
@@ -24,9 +35,8 @@ const PageHeader = (): JSX.Element => {
           <QuoteIcon className={classes.iconQuote}></QuoteIcon>
           {/* </NextLink> */}
           <div className={classes.spacer}></div>
-          <Button onClick={signIn} color="inherit">
-            Login
-          </Button>
+          <p>isAuthenticated: {isAuthenticated};</p>
+          {isAuthenticated ? LogoutButton : LoginButton}
         </Toolbar>
       </Box>
     </AppBar>

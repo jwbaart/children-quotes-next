@@ -1,17 +1,26 @@
 import { createContext, useState } from 'react';
 
-const defaultState = {
+export type AuthState = {
+  user: boolean;
+  isAuthenticated: boolean;
+  signIn: () => Promise<null>;
+  signOut: () => Promise<null>;
+};
+
+const defaultAuthState: AuthState = {
   user: false,
   isAuthenticated: false,
 };
 
-const AuthContext = createContext({});
+const AuthContext = createContext<AuthState | undefined>(undefined);
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const AuthProvider = ({ children }) => {
-  const [state, setState] = useState({ ...defaultState });
+  const [authState, setAuthState] = useState({ ...defaultAuthState });
+  console.log('authState', authState);
 
   return (
-    <AuthContext.Provider value={[state, setState]}>
+    <AuthContext.Provider value={[authState, setAuthState]}>
       {children}
     </AuthContext.Provider>
   );
