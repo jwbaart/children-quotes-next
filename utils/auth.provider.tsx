@@ -1,18 +1,16 @@
 import { createContext, useState } from 'react';
 
-export type AuthState = {
+export interface IAuthState {
   user: boolean;
   isAuthenticated: boolean;
-  signIn: () => Promise<null>;
-  signOut: () => Promise<null>;
-};
+}
 
-const defaultAuthState: AuthState = {
+const defaultAuthState: IAuthState = {
   user: false,
   isAuthenticated: false,
 };
 
-const AuthContext = createContext<AuthState | undefined>(undefined);
+const AuthContext = createContext<IAuthState | undefined>(undefined);
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const AuthProvider = ({ children }) => {

@@ -1,10 +1,15 @@
 import { useContext, useEffect } from 'react';
 import getFirebase from '../firebase/firebase';
-import { AuthContext, AuthState } from './auth.provider';
+import { AuthContext, IAuthState } from './auth.provider';
 
 const firebase = getFirebase();
 
-export const useAuthContext = (): AuthState => {
+export interface IAuthContext extends IAuthState {
+  signIn: () => Promise<null>;
+  signOut: () => Promise<null>;
+}
+
+export const useAuthContext = (): IAuthState => {
   const [authState, setAuthState] = useContext(AuthContext);
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -31,11 +36,14 @@ export const useAuthContext = (): AuthState => {
   };
 
   useEffect(() => {
+    console.log('useEffect');
     const unsubscribe = firebase
       .auth()
-      .onIdTokenChanged(() => setAuthState(false));
+      .onIdTokenChanged(() =>
+        setAuthState({ ...authState, user: false, isAuthenticated: false })
+      );
     return () => unsubscribe();
-  }, [setAuthState]);
+  }, [setAuthState, authState]);
 
   return {
     ...authState,

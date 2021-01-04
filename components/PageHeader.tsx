@@ -15,6 +15,7 @@ const useStyles = makeStyles(() => ({
 const PageHeader = (): JSX.Element => {
   const classes = useStyles();
   const { signIn, signOut, isAuthenticated } = useAuthContext();
+  // console.log('isAuthenticated', isAuthenticated);
 
   const LoginButton = (
     <Button onClick={signIn} color="inherit">
@@ -36,6 +37,7 @@ const PageHeader = (): JSX.Element => {
           {/* </NextLink> */}
           <div className={classes.spacer}></div>
           <p>isAuthenticated: {isAuthenticated};</p>
+
           {isAuthenticated ? LogoutButton : LoginButton}
         </Toolbar>
       </Box>
