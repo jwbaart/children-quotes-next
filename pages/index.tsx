@@ -6,10 +6,13 @@ import ProTip from '../src/ProTip';
 import NextLink from 'next/link';
 import Copyright from '../src/Copyright';
 import Layout from '../components/Layout';
+import { useFetchUser } from '../utils/user';
 
-const Index = (): JSX.Element => {
+const Index: React.FC = (): JSX.Element => {
+  const { user, loading } = useFetchUser();
+
   return (
-    <Layout>
+    <Layout user={user} loading={loading}>
       <Container maxWidth="sm">
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
