@@ -8,17 +8,31 @@ function getServerSetting(environmentVariable: string, defaultValue?: string) {
   return defaultValue || null;
 }
 
+enum VERCEL_ENV {
+  PRODUCTION = 'production',
+  PREVIEW = 'preview',
+  DEVELOPMENT = 'development',
+}
+
+const getRedirectUri = (): string => {
+  switch (process.env['VERCEL_ENV']) {
+    case VERCEL_ENV.PRODUCTION:
+    case VERCEL_ENV.PREVIEW:
+      return `${process.env['VERCEL_URL']}/api/callback`;
+    case VERCEL_ENV.DEVELOPMENT:
+    default:
+      return 'http://localhost:3000/api/callback';
+  }
+};
+
 export default initAuth0({
   clientId: getServerSetting('AUTH0_CLIENT_ID'),
   clientSecret: getServerSetting('AUTH0_CLIENT_SECRET'),
   scope: 'openid profile email',
   domain: getServerSetting('AUTH0_DOMAIN'),
-  redirectUri: getServerSetting(
-    'REDIRECT_URI',
-    'http://localhost:3000/api/callback'
-  ),
+  redirectUri: getRedirectUri(),
   postLogoutRedirectUri: getServerSetting(
-    'POST_LOGOUT_REDIRECT_URI',
+    'VERCEL_URL',
     'http://localhost:3000/'
   ),
   session: {
