@@ -36,6 +36,9 @@ const getPostLogoutRedirectUri = (): string => {
   }
 };
 
+console.log('getPostLogoutRedirectUri:', getPostLogoutRedirectUri());
+console.log('getRedirectUri:', getRedirectUri());
+
 export default initAuth0({
   clientId: getServerSetting('AUTH0_CLIENT_ID'),
   clientSecret: getServerSetting('AUTH0_CLIENT_SECRET'),
