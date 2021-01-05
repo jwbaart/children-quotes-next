@@ -18,7 +18,7 @@ const getRedirectUri = (): string => {
   switch (process.env['VERCEL_ENV']) {
     case VERCEL_ENV.PRODUCTION:
     case VERCEL_ENV.PREVIEW:
-      return `${process.env['VERCEL_URL']}/api/callback`;
+      return `https://${process.env['VERCEL_URL']}/api/callback`;
     case VERCEL_ENV.DEVELOPMENT:
     default:
       return 'http://localhost:3000/api/callback';
