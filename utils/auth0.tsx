@@ -25,16 +25,24 @@ const getRedirectUri = (): string => {
   }
 };
 
+const getPostLogoutRedirectUri = (): string => {
+  switch (process.env['VERCEL_ENV']) {
+    case VERCEL_ENV.PRODUCTION:
+    case VERCEL_ENV.PREVIEW:
+      return `https://${process.env['VERCEL_URL']}`;
+    case VERCEL_ENV.DEVELOPMENT:
+    default:
+      return 'http://localhost:3000';
+  }
+};
+
 export default initAuth0({
   clientId: getServerSetting('AUTH0_CLIENT_ID'),
   clientSecret: getServerSetting('AUTH0_CLIENT_SECRET'),
   scope: 'openid profile email',
   domain: getServerSetting('AUTH0_DOMAIN'),
   redirectUri: getRedirectUri(),
-  postLogoutRedirectUri: getServerSetting(
-    'VERCEL_URL',
-    'http://localhost:3000/'
-  ),
+  postLogoutRedirectUri: getPostLogoutRedirectUri(),
   session: {
     cookieSecret: getServerSetting('SESSION_COOKIE_SECRET'),
     cookieLifetime: 7200,
