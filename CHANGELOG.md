@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jwbaart/children-quotes/compare/v1.1.5...v1.2.0) (2021-01-06)
+
+
+### Features
+
+* auth0 authentication ([10ab3ed](https://github.com/jwbaart/children-quotes/commit/10ab3edd15820d64343fa3a4f45279ad4a689a0a))
+
 ## [1.1.5](https://github.com/jwbaart/children-quotes/compare/v1.1.4...v1.1.5) (2020-11-04)
 
 
