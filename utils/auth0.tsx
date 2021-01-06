@@ -17,6 +17,7 @@ enum VERCEL_ENV {
 const getRedirectUri = (): string => {
   switch (process.env['VERCEL_ENV']) {
     case VERCEL_ENV.PRODUCTION:
+      return `https://${process.env.PROD_DOMAIN}/api/callback`;
     case VERCEL_ENV.PREVIEW:
       return `https://${process.env['VERCEL_URL']}/api/callback`;
     case VERCEL_ENV.DEVELOPMENT:
@@ -28,6 +29,7 @@ const getRedirectUri = (): string => {
 const getPostLogoutRedirectUri = (): string => {
   switch (process.env['VERCEL_ENV']) {
     case VERCEL_ENV.PRODUCTION:
+      return `https://${process.env.PROD_DOMAIN}/api/callback`;
     case VERCEL_ENV.PREVIEW:
       return `https://${process.env['VERCEL_URL']}`;
     case VERCEL_ENV.DEVELOPMENT:
