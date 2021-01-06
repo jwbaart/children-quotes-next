@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/jwbaart/children-quotes/compare/v1.2.0...v1.2.1) (2021-01-06)
+
+
+### Bug Fixes
+
+* auth0 prod return urls ([99410b9](https://github.com/jwbaart/children-quotes/commit/99410b99a6ff360b5a8a7d402d2bbc6a0a0ca952))
+
 # [1.2.0](https://github.com/jwbaart/children-quotes/compare/v1.1.5...v1.2.0) (2021-01-06)
 
 
