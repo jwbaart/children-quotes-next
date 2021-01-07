@@ -1,9 +1,10 @@
 import { Box, Container } from '@material-ui/core';
 import React from 'react';
 import Layout from '../components/Layout';
+import withAuth from '../components/WithAuth';
 import { useFetchUser } from '../utils/user';
 
-export default function Profile(): React.ReactElement {
+export const Profile = (): React.ReactElement => {
   const { user, loading } = useFetchUser();
 
   return (
@@ -24,4 +25,6 @@ export default function Profile(): React.ReactElement {
       </Container>
     </Layout>
   );
-}
+};
+
+export default withAuth(Profile);

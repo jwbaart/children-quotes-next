@@ -4,9 +4,12 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
+import { useApollo } from '../apollo/client';
+import { ApolloProvider } from '@apollo/client';
 
 const MyApp = (props): JSX.Element => {
   const { Component, pageProps } = props;
+  const apolloClient = useApollo(pageProps.initialApolloState);
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -25,11 +28,13 @@ const MyApp = (props): JSX.Element => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <ApolloProvider client={apolloClient}>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </ApolloProvider>
     </React.Fragment>
   );
 };
