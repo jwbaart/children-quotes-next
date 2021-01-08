@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/jwbaart/children-quotes/compare/v1.2.1...v1.3.0) (2021-01-08)
+
+
+### Features
+
+* basis graphql implementation ([#9](https://github.com/jwbaart/children-quotes/issues/9)) ([3b81b62](https://github.com/jwbaart/children-quotes/commit/3b81b628a02c84bb8c2be6b01feff69c157a81a0))
+
 ## [1.2.1](https://github.com/jwbaart/children-quotes/compare/v1.2.0...v1.2.1) (2021-01-06)
 
 
