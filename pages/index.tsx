@@ -7,6 +7,8 @@ import NextLink from 'next/link';
 import Copyright from '../src/Copyright';
 import Layout from '../components/Layout';
 import { useFetchUser } from '../utils/user';
+import { ExchangeRates } from '../components/ExchangeRates';
+import { Viewer } from '../components/Viewer';
 
 const Index: React.FC = (): JSX.Element => {
   const { user, loading } = useFetchUser();
@@ -18,6 +20,8 @@ const Index: React.FC = (): JSX.Element => {
           <Typography variant="h4" component="h1" gutterBottom>
             Next.js example
           </Typography>
+          <Viewer></Viewer>
+          <ExchangeRates></ExchangeRates>
           <NextLink href="/about">To about</NextLink>
           <ProTip />
           <Copyright />
