@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/jwbaart/children-quotes/compare/v1.3.0...v1.3.1) (2021-01-08)
+
+
+### Bug Fixes
+
+* disable graphql playground on prod ([478cb69](https://github.com/jwbaart/children-quotes/commit/478cb698fcd5081e9aec1d67ad297651fa8b4f72))
+
 # [1.3.0](https://github.com/jwbaart/children-quotes/compare/v1.2.1...v1.3.0) (2021-01-08)
 
 
