@@ -1,25 +1,20 @@
 import _ from 'lodash';
-// export const resolvers = {
-//   Query: {
-//     viewer(_parent, _args, _context, _info) {
-//       return { id: 1, name: 'John Smith', status: 'cached' };
-//     },
-//   },
-// };
 
 export const resolvers = {
   Query: {
-    rates: async (_root, { currency }) => {
+    rates: async (_root, { currency, numberOfItems = 5 }) => {
       try {
         const results = await fetch(
           `https://api.coinbase.com/v2/exchange-rates?currency=${currency}`
         );
-        const exchangeRates = await results.json();
-
-        return _.map(exchangeRates.data.rates, (rate, currency) => ({
+        const response = await results.json();
+        const exchangeRates = _.map(response.data.rates, (rate, currency) => ({
           currency,
           rate,
         }));
+        return exchangeRates.length > numberOfItems
+          ? exchangeRates.slice(0, numberOfItems)
+          : exchangeRates;
       } catch (e) {
         console.error(e);
       }
