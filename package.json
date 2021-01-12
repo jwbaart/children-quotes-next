@@ -23,6 +23,7 @@
     "isomorphic-unfetch": "^3.1.0",
     "lodash": "^4.17.20",
     "lodash.map": "^4.6.0",
+    "lodash.merge": "^4.6.2",
     "next": "^10.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.0",

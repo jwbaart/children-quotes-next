@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 // Construct a schema, using GraphQL schema language
-export const typeDefs = gql`
-  type Query {
+export const TryOut = gql`
+  extend type Query {
     rates(currency: String!): [ExchangeRate]
     viewer: User
   }
