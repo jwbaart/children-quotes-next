@@ -7,11 +7,11 @@ export const Quotes = gql`
     text: String!
   }
 
-  input getQuoteInput {
-    uid: String!
-  }
+  #   input getQuoteInput {
+  #     uid: String!
+  #   }
 
   extend type Query {
-    getQuotes: [Quote]!
+    quotes: [Quote]!
   }
 `;
