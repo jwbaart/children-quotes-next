@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export const resolvers = {
+export const tryOutResolvers = {
   Query: {
     rates: async (_root, { currency, numberOfItems = 5 }) => {
       try {

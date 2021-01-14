@@ -1,8 +1,8 @@
 import { ApolloServer } from 'apollo-server-micro';
 import { schema } from '../../apollo/schema';
+import auth0 from '../../utils/auth0';
 
 const apolloServer = new ApolloServer({
-  context: (ctx) => ctx,
   /**
    * Add introspection to view the schema / docs in playground after running `next build` and `next start`
    * Without introspection, you'll get a message saying "Server cannot be reached"
@@ -14,6 +14,10 @@ const apolloServer = new ApolloServer({
     },
   },
   schema,
+  context: async (ctx) => {
+    const { user } = await auth0.getSession(ctx.req);
+    return { user };
+  },
 });
 
 export const config = {

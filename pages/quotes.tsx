@@ -4,22 +4,22 @@ import Box from '@material-ui/core/Box';
 import Layout from '../components/Layout';
 import { useFetchUser } from '../utils/user';
 import { Quotes } from '../components/quotes/Quotes';
-import { Link } from '@material-ui/core';
+import withAuth from '../components/WithAuth';
 
-const Index: React.FC = (): JSX.Element => {
+const QuotesPage: React.FC = (): JSX.Element => {
   const { user, loading } = useFetchUser();
 
   return (
     <Layout user={user} loading={loading}>
       <Container maxWidth="sm">
         <Box my={4}>
-          <h1>Welcome</h1>
+          <h1>Quotes</h1>
 
-          <Link href="/quotes">Quotes</Link>
+          <Quotes></Quotes>
         </Box>
       </Container>
     </Layout>
   );
 };
 
-export default Index;
+export default withAuth(QuotesPage);
