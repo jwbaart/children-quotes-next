@@ -2,9 +2,10 @@ import { gql } from '@apollo/client';
 
 export const Quotes = gql`
   type Quote {
-    uid: String!
+    id: ID!
     title: String
     text: String!
+    author: User!
   }
 
   #   input getQuoteInput {

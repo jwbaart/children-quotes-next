@@ -13,9 +13,9 @@ export const TryOut = gql`
     name: String
   }
 
-  type User {
-    id: ID!
-    name: String!
-    status: String!
-  }
+  # type User {
+  #   id: ID!
+  #   name: String!
+  #   status: String!
+  # }
 `;
